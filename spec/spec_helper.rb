@@ -20,6 +20,12 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.before(:each) do
+    user = User.create(email: 'example@gmail.com', password: '123456')
+    user.save
+    PostsController.any_instance.stub(:current_user).and_return(User.first)
+  end
+
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end

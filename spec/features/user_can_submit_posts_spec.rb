@@ -1,6 +1,5 @@
 require 'rails_helper'
 def user_makes_a_post
-  user_signs_up
   visit "/posts"
   click_link "New post"
   fill_in "Message", with: "Hello, world!"
@@ -9,6 +8,7 @@ end
 
 def user_signs_up
   visit "/users/sign_up"
+  fill_in "user_password", with: "123456abc"
   fill_in "user_email", with: "jordan@matt.com"
   fill_in "user_password", with: "123456abc"
   fill_in "user_password_confirmation", with: "123456abc"
