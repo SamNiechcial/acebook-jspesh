@@ -57,10 +57,4 @@ ActiveRecord::Schema.define(version: 20180514152900) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-
-  add_foreign_key "chat_rooms", "users"
-  add_foreign_key "messages", "chat_rooms"
-  add_foreign_key "messages", "users"
-  add_foreign_key "posts", "users"
 end
